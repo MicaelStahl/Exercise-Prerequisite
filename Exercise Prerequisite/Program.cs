@@ -11,6 +11,7 @@ namespace Exercise_Prerequisite
             {
                 try
                 {
+
                     Console.Write("Enter assignment number (or -1 to exit): ");
                     var assignmentChoice = int.Parse(Console.ReadLine() ?? "");
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -23,7 +24,13 @@ namespace Exercise_Prerequisite
                             RunExerciseTwo();
                             break;
                         case 3:
-                            RunExerciseThree();
+                            string FullName = RunExerciseThree();
+                            Console.WriteLine(FullName);
+                            break;
+                        case 4:
+                            string FullFox =  RunExerciseFour();
+                            String str = "The quick fox Jumped Over the DOG";
+                            Console.WriteLine(str + "\n" + FullFox);
                             break;
                         case -1:
                             keepAlive = false;
@@ -33,6 +40,7 @@ namespace Exercise_Prerequisite
                             Console.WriteLine("That is not a valid assignment number!");
                             break;
                     }
+
                     Console.ResetColor();
                     Console.WriteLine("Hit any key to continue!");
                     Console.ReadKey();
@@ -45,6 +53,8 @@ namespace Exercise_Prerequisite
                     Console.ResetColor();
                 }
             }
+
+
         }
         private static void RunExerciseOne()
         {
@@ -55,7 +65,6 @@ namespace Exercise_Prerequisite
 
             Console.Write("What's your first name?: ");
             string strFirstName = Console.ReadLine();
-
             Console.Write("Hello " + strFirstName + ", What's your second name?: ");
             string strSecondName = Console.ReadLine();
 
@@ -71,26 +80,41 @@ namespace Exercise_Prerequisite
             Console.Clear();
 
             DateTime Yesterday = YesterdaysDate(); //Gets Yesterdays date from Method "YesterdaysDate"
-            Console.WriteLine("Yesterday: {0}", Yesterday);
+            Console.WriteLine("Yesterdays date was: {0}", Yesterday.ToString("yy/MM/dd")); //Only shows yy/mm/dd in Console and not the time.
 
-            Console.WriteLine("Today: {0}", DateTime.Today.ToString("yy/MM/dd"));
+            Console.WriteLine("Todays date is: {0}", DateTime.Today.ToString("yy/MM/dd"));
 
-            DateTime Tomorrow = TomorrowsDate();
-            Console.WriteLine("Tomorrow: {0}", Tomorrow);
-
-
-            //DateTime value = new DateTime();
-
-
-            //int intDate = Convert.ToInt32(Console.ReadLine());
-
-            //int intYesterdaysDate = intDate--;
-            //int intTomorrowsDate = intDate++;
+            DateTime Tomorrow = TomorrowsDate();    //Gets Tomorrows date from Method TomorrowsDate
+            Console.WriteLine("Tomorrows date is: {0}", Tomorrow.ToString("yy/MM/dd"));
             
         }
-        private static void RunExerciseThree()
+        private static string RunExerciseThree()
         {
-            Console.WriteLine("You successfully found the secret assignment!");
+            Console.Clear();
+            Console.Write("Enter your first name: ");
+            string FirstName = Console.ReadLine();
+            Console.Write("Enter your last name: ");
+            string LastName = Console.ReadLine();
+            string FullName = FirstName + " " + LastName;
+
+            return FullName;
+        }
+        private static string RunExerciseFour()
+        {
+            Console.Clear();
+
+            String BabyFox = "The quick fox Jumped Over the DOG";
+
+            string FirstFox = BabyFox.Replace("quick", "brown");
+            string SecondFox = FirstFox.ToLower();
+            string ThirdFox = char.ToUpper(FirstFox[0]) + SecondFox.Substring(1);
+            string FourthFox = ThirdFox.Insert(30, "lazy ");
+
+            // change "The quick fox Jumped Over the DOG"
+            // to get "The brown fox jumped over the lazy dog"
+
+            string FullFox = FourthFox;
+            return FullFox;
         }
         static DateTime TomorrowsDate()
         {
