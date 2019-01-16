@@ -122,15 +122,19 @@ namespace Exercise_Prerequisite
         }
         private static string RunExerciseFive()
         {
+            Console.WriteLine("You successfully ran exercise five! Press any key to continue! ");
+            Console.ReadKey();
             Console.Clear();
+
             String str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
-            string firstNumbers = str.Remove(68, 4); //Removes 4 characters starting from character 68
-            //Arrays are very common in programming, they look something like: [1,2,3,4,5]
-            //                                                                  68
-            string secondNumbers = firstNumbers.Remove(70, 1); //Removes the "]"
-            string thirdNumbers = secondNumbers.Insert(70, "5,6,7,8,9,10"); //inserts "5,6,7,8,9,10" from character 70. 
-            string fullNumbers = thirdNumbers;
             Console.ReadLine();
+
+            int firstNumbers = str.IndexOf("[");
+            string secondNumbers = str.Substring(firstNumbers);
+            string thirdNumbers = secondNumbers.Remove(3, 4); //Removes 4 characters starting from character 4
+            string fourthNumbers = thirdNumbers.Insert(6, ",6,7,8,9,10"); //inserts "5,6,7,8,9,10" from character 6. 
+            
+            string fullNumbers = fourthNumbers;
             return fullNumbers;
         }
         static DateTime TomorrowsDate()
