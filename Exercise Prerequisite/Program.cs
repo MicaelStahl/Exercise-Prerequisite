@@ -28,13 +28,16 @@ namespace Exercise_Prerequisite
                             Console.WriteLine(FullName);
                             break;
                         case 4:
-                            string FullFox =  RunExerciseFour();
+                            string FullFox = RunExerciseFour();
                             String str = "The quick fox Jumped Over the DOG";
                             Console.WriteLine(str + "\n" + FullFox);
                             break;
                         case 5:
                             string fullNumbers = RunExerciseFive();
                             Console.WriteLine(fullNumbers);
+                            break;
+                        case 6:
+                            RunExerciseSix();
                             break;
                         case -1:
                             keepAlive = false;
@@ -90,15 +93,17 @@ namespace Exercise_Prerequisite
 
             DateTime Tomorrow = TomorrowsDate();    //Gets Tomorrows date from Method TomorrowsDate
             Console.WriteLine("Tomorrows date is: {0}", Tomorrow.ToString("yy/MM/dd"));
-            
+
         }
         private static string RunExerciseThree()
         {
             Console.Clear();
             Console.Write("Enter your first name: ");
             string FirstName = Console.ReadLine();
+
             Console.Write("Enter your last name: ");
             string LastName = Console.ReadLine();
+
             string FullName = FirstName + " " + LastName;
 
             return FullName;
@@ -133,9 +138,67 @@ namespace Exercise_Prerequisite
             string secondNumbers = str.Substring(firstNumbers);
             string thirdNumbers = secondNumbers.Remove(3, 4); //Removes 4 characters starting from character 4
             string fourthNumbers = thirdNumbers.Insert(6, ",6,7,8,9,10"); //inserts "5,6,7,8,9,10" from character 6. 
-            
+
             string fullNumbers = fourthNumbers;
             return fullNumbers;
+        }
+        private static void RunExerciseSix()
+        {
+            Console.WriteLine("You successfully ran exercise six! Press any key to continue! ");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.Write("Please add the first number to the exercise: ");
+            int numberA = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Now, Please add the second number to the exercise: ");
+            int numberB = Convert.ToInt32(Console.ReadLine());
+
+            if (numberA > numberB)
+            {
+                Console.Clear();
+
+                int numberPDifference = numberA - numberB;
+                int numberNDifference = numberB - numberA;
+
+                int numberSum = numberA + numberB;
+
+                int numberProduct = numberA * numberB;
+
+                double numberRatio = numberA / (double)numberB;
+
+                Console.WriteLine("Biggest: " + numberA);
+                Console.WriteLine("Smallest: " + numberB);
+                Console.WriteLine("Positive difference: " + numberPDifference);
+                Console.WriteLine("Negative difference: " + numberNDifference);
+                Console.WriteLine("Sum: " + numberSum);
+                Console.WriteLine("Product: " + numberProduct);
+                Console.WriteLine("Ratio: " + numberRatio);
+
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.Clear();
+                int numberPDifference = numberB - numberA;
+                int numberNDifference = numberA - numberB;
+
+                int numberSum = numberB + numberA;
+
+                int numberProduct = numberB * numberA;
+
+                double numberRatio = numberB / (double)numberA;
+
+                Console.WriteLine("Biggest: " + numberB);
+                Console.WriteLine("Smallest: " + numberA);
+                Console.WriteLine("Positive difference: " + numberPDifference);
+                Console.WriteLine("Negative difference: " + numberNDifference);
+                Console.WriteLine("Sum: " + numberSum);
+                Console.WriteLine("Product: " + numberProduct);
+                Console.WriteLine("Ratio: " + numberRatio);
+
+                Console.ReadKey();
+            }
         }
         static DateTime TomorrowsDate()
         {
