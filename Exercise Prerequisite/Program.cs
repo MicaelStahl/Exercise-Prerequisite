@@ -33,8 +33,8 @@ namespace Exercise_Prerequisite
                             Console.WriteLine(str + "\n" + FullFox);
                             break;
                         case 5:
-                            string FullArray = RunExerciseFive();
-                            Console.WriteLine(FullArray);
+                            string fullNumbers = RunExerciseFive();
+                            Console.WriteLine(fullNumbers);
                             break;
                         case -1:
                             keepAlive = false;
@@ -124,14 +124,14 @@ namespace Exercise_Prerequisite
         {
             Console.Clear();
             String str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
-            Console.ReadLine();
-            string FirstArray = str.Remove(68, 8); //Removes 4 characters starting from character 68
+            string firstNumbers = str.Remove(68, 4); //Removes 4 characters starting from character 68
             //Arrays are very common in programming, they look something like: [1,2,3,4,5]
             //                                                                  68
-            string SecondArray = FirstArray.Remove(71, 1); // :)
-            string ThirdArray = SecondArray.Insert(72, ",4,5,6,7,8,9,10]"); //Continue testing
-            string FullArray = ThirdArray;
-            return FullArray;
+            string secondNumbers = firstNumbers.Remove(70, 1); //Removes the "]"
+            string thirdNumbers = secondNumbers.Insert(70, "5,6,7,8,9,10"); //inserts "5,6,7,8,9,10" from character 70. 
+            string fullNumbers = thirdNumbers;
+            Console.ReadLine();
+            return fullNumbers;
         }
         static DateTime TomorrowsDate()
         {
