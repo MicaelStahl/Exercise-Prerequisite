@@ -39,6 +39,9 @@ namespace Exercise_Prerequisite
                         case 6:
                             RunExerciseSix();
                             break;
+                        case 7:
+                            RunExerciseSeven();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -95,6 +98,17 @@ namespace Exercise_Prerequisite
             Console.WriteLine("Tomorrows date is: {0}", Tomorrow.ToString("yy/MM/dd"));
 
         }
+
+        static DateTime TomorrowsDate()
+        {
+            return DateTime.Today.AddDays(1);
+        }
+
+        static DateTime YesterdaysDate()
+        {
+            return DateTime.Today.AddDays(-1);
+        }
+
         private static string RunExerciseThree()
         {
             Console.Clear();
@@ -200,13 +214,21 @@ namespace Exercise_Prerequisite
                 Console.ReadKey();
             }
         }
-        static DateTime TomorrowsDate()
+        private static void RunExerciseSeven()
         {
-            return DateTime.Today.AddDays(1);
-        }
-        static DateTime YesterdaysDate()
-        {
-            return DateTime.Today.AddDays(-1);
+            Console.ResetColor();
+            Console.Write("Please input the radius value: ");
+            double Radius = double.Parse(Console.ReadLine() ?? "");
+
+            double PI = Math.PI;
+
+            double Area = PI * (Radius * Radius);
+            double Volume = 4 * PI * Math.Pow(Radius, 3) / 3;
+
+            Console.WriteLine("The Area of the circle is: {0:0.00} ", Area);
+            Console.WriteLine("The Volume of the circle is: {0:0.00} ", Volume);
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
