@@ -42,6 +42,24 @@ namespace Exercise_Prerequisite
                         case 7:
                             RunExerciseSeven();
                             break;
+                        case 8:
+                            RunExerciseEight();
+                            break;
+                        case 9:
+                            RunExerciseNine();
+                            break;
+                        case 10:
+                            RunExerciseTen();
+                            break;
+                        case 11:
+                            RunExerciseEleven();
+                            break;
+                        case 12:
+                            RunExerciseTwelve();
+                            break;
+                        case 13:
+                            RunExerciseThirteen();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -52,7 +70,9 @@ namespace Exercise_Prerequisite
                     }
 
                     Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("Hit any key to continue!");
+                    Console.ResetColor();
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -222,13 +242,336 @@ namespace Exercise_Prerequisite
 
             double PI = Math.PI;
 
-            double Area = PI * (Radius * Radius);
-            double Volume = 4 * PI * Math.Pow(Radius, 3) / 3;
+            double sphereArea = 4 * PI * Math.Pow(Radius, 2);
+            double sphereVolume = 4 * PI * Math.Pow(Radius, 3) / 3;
 
-            Console.WriteLine("The Area of the circle is: {0:0.00} ", Area);
-            Console.WriteLine("The Volume of the circle is: {0:0.00} ", Volume);
+            double circleArea = PI * (Radius * Radius);
+
+            Console.WriteLine("\nThe Area of the circle is: {0:0.00} ", circleArea);
+
+            Console.WriteLine("\nThe Area of the sphere is: {0:0.00} ", sphereArea);
+            Console.WriteLine("\nThe Volume of the sphere is: {0:0.00} ", sphereVolume);
+
             Console.ReadKey();
             Console.Clear();
+        }
+        private static void RunExerciseEight()
+        {
+            Console.Write("Please type a decimal number (x,xx): ");
+            double decimalNumber = double.Parse(Console.ReadLine() ?? "");
+
+            Console.WriteLine("\nThat results in the following results: ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Console.WriteLine("\nSquare root of " + decimalNumber + " is: " + Math.Sqrt(decimalNumber));
+
+            Console.WriteLine("The power of 2 of " + decimalNumber + " is: " + Math.Pow(decimalNumber,2));
+
+            Console.WriteLine("The power of 10 of " + decimalNumber + " is: " + Math.Pow(decimalNumber, 10));
+
+            Console.ResetColor();
+            Console.ReadKey();
+            Console.Clear();
+        }
+        private static void RunExerciseNine()
+        {
+            Console.ResetColor();
+            Console.Write("\nHello dear Customer. What is your name? ");
+            string fullName = (Console.ReadLine() ?? "");
+
+            Console.Write("\nHello dearest " + fullName + ". What year were you born? ");
+            double birthYear = double.Parse(Console.ReadLine() ?? "");
+
+            double ageRestriction = DateTime.Now.Year - birthYear;
+
+            if (ageRestriction >= 18)
+            {
+                Console.Write("\nThat means you're " + ageRestriction + "! \nWould you like a beer? y/n: ");
+                string answerBeer = (Console.ReadLine() ?? "");
+                if (answerBeer == "y")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nYour order has been placed!");
+
+                    Console.ResetColor();
+                    Console.ReadKey();
+                    Console.Clear();
+                    
+                }
+                else
+                {
+                    Console.Write("\nWould you like a coke instead? y/n ");
+                    string answerCoke = (Console.ReadLine() ?? "");
+
+                    if (answerCoke == "y")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nYour order has been placed!");
+
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nNo other option is available :(");
+
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                }
+            }
+            else
+            {
+                Console.Write("\nWould you like to order a coke? y/n: ");
+                string answerCoke = (Console.ReadLine() ?? "");
+
+                if (answerCoke == "y")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nYour order has been placed!");
+
+                    Console.ResetColor();
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nNo other option is available :(");
+
+                    Console.ResetColor();
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
+        }
+        private static void RunExerciseTen()
+        {
+            Console.ResetColor();
+            Console.WriteLine("Thank you for choosing option 10! Here's 3 options to pick between!");
+
+            Console.Write("1: is a math program to count division! \n2: is exercise 4! \n3: is a colourful option!\nPick between 1-3: ");
+            int Choice = int.Parse(Console.ReadLine() ?? "");
+
+            switch (Choice)
+            {
+                case 1:
+                    RunExerciseTenDivision();
+                    break;
+
+                case 2:
+                    string FullFox = RunExerciseFour();
+                    String str = "The quick fox Jumped Over the DOG";
+                    Console.WriteLine(str + "\n" + FullFox);
+                    break;
+
+                case 3:
+                    RunExerciseTenColour();
+                    break;
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+        private static void RunExerciseTenDivision()
+        {
+            Console.Clear();
+
+            Console.Write("Hello! Please insert your first number: ");
+            double divisionOne = double.Parse(Console.ReadLine() ?? "");
+
+            Console.Write("\nPlease insert a number to divide " + divisionOne + " with: ");
+            double divisionTwo = double.Parse(Console.ReadLine() ?? "");
+
+            double divisionAnswer = divisionOne / divisionTwo;
+
+            if (divisionTwo == 0 && divisionOne == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nError! Can't divide with 0!");
+
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine("\n" + divisionOne + " / " + divisionTwo + " = " + divisionAnswer);
+
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+            }
+        }
+        public static void RunExerciseTenColour()
+        {
+            
+
+            Console.WriteLine("Welcome to exercise 10 option 3!");
+            Console.ReadKey();
+
+            if (Globals.globalColour == "Red")
+            {
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("This is now green!");
+
+                Console.ResetColor();
+                //Console.ReadKey();
+
+                Globals.globalColour = "Green";
+            }
+            else
+            {
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("This is now red!");
+
+                Console.ResetColor();
+                //Console.ReadKey();
+
+                Globals.globalColour = "Red";
+            }
+        }
+        private static void RunExerciseEleven()
+        {
+            Console.Write("Please insert a number greater than 0: ");
+            int numberCheck = int.Parse(Console.ReadLine() ?? "");
+
+            if (numberCheck <= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error! You didn't pick a number great than 0");
+                Console.ResetColor();
+                
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            for (int goingUp = 0; goingUp <= numberCheck; goingUp++)
+            {
+                if (IsOdd(goingUp))
+                {
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+
+                    Console.WriteLine(goingUp);
+                }
+                else
+                {
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine(goingUp);
+                }
+            }
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("-----------------------------");
+            Console.ResetColor();
+
+            for (int goingDown = numberCheck; goingDown >= 0; goingDown--)
+            {
+                if (IsOdd(goingDown))
+                {
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+
+                    Console.WriteLine(goingDown);
+                }
+                else
+                {
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine(goingDown);
+                }
+            }
+        }
+        public static bool IsOdd(int value)
+        {
+            return value % 2 != 0;
+        }
+        private static void RunExerciseTwelve()
+        {
+            Console.WriteLine("Hello and welcome to exercise 12! press any key to see a multiplication table!");
+            Console.ReadKey();
+
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    Console.Write(i + "\t");
+            //    for (int j = 2; j <= 10; j++)
+            //    {
+            //        if (i > 0) Console.Write(i * j + "\t");
+            //        else Console.Write(j + "\t");
+            //    }
+            //    Console.Write("\n");
+            //}
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.Write(i + "\t");
+
+                for (int j = 2; j <= 10; j++)
+                {
+                    if (i > 0)
+                    {
+                        Console.Write(i * j + "\t");
+                    }
+                    else
+                    {
+                        Console.Write(j + "\t");
+                    }
+                }
+                Console.Write("\n");
+            }
+        }
+        private static void RunExerciseThirteen()
+        {
+            bool stayAlive = true;
+            Random random = new Random();
+            int randomNumber = random.Next(0, 500);
+            int tries = 0;
+
+            while (stayAlive)
+            {
+                Console.Write("Please enter a guess: ");
+                int guess = int.Parse(Console.ReadLine() ?? "");
+
+                if (guess > randomNumber)
+                {
+                    tries = tries + 1;
+                    Console.WriteLine("Your guess was too big! Try again! You've guessed " + tries + " Times!");
+                }
+                else if (guess < randomNumber)
+                {
+                    tries = tries+ 1;
+                    Console.WriteLine("Your guess was too small! Try again! You've guessed " + tries + " Times!");
+                }
+                else
+                {
+                    tries = tries+ 1;
+                    Console.WriteLine("Congratulations, you guessed correctly! it was: " + guess + " You guessed " + tries + " Times!");
+                    stayAlive = false;
+                }
+            }
+        }
+
+        public static class Globals
+        {
+            public static String globalColour = "Red";
         }
     }
 }
