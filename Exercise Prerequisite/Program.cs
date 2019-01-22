@@ -60,6 +60,21 @@ namespace Exercise_Prerequisite
                         case 13:
                             RunExerciseThirteen();
                             break;
+                        case 14:
+                            RunExerciseFourteen();
+                            break;
+                        case 15:
+                            RunExerciseFifteen();
+                            break;
+                        case 16:
+                            RunExerciseSixthteen();
+                            break;
+                        case 17:
+                            RunExerciseSeventeen();
+                            break;
+                        case 18:
+                            RunExerciseEighteen();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -266,7 +281,7 @@ namespace Exercise_Prerequisite
 
             Console.WriteLine("\nSquare root of " + decimalNumber + " is: " + Math.Sqrt(decimalNumber));
 
-            Console.WriteLine("The power of 2 of " + decimalNumber + " is: " + Math.Pow(decimalNumber,2));
+            Console.WriteLine("The power of 2 of " + decimalNumber + " is: " + Math.Pow(decimalNumber, 2));
 
             Console.WriteLine("The power of 10 of " + decimalNumber + " is: " + Math.Pow(decimalNumber, 10));
 
@@ -297,7 +312,7 @@ namespace Exercise_Prerequisite
                     Console.ResetColor();
                     Console.ReadKey();
                     Console.Clear();
-                    
+
                 }
                 else
                 {
@@ -411,7 +426,7 @@ namespace Exercise_Prerequisite
         }
         public static void RunExerciseTenColour()
         {
-            
+
 
             Console.WriteLine("Welcome to exercise 10 option 3!");
             Console.ReadKey();
@@ -451,7 +466,7 @@ namespace Exercise_Prerequisite
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error! You didn't pick a number great than 0");
                 Console.ResetColor();
-                
+
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -509,17 +524,6 @@ namespace Exercise_Prerequisite
             Console.WriteLine("Hello and welcome to exercise 12! press any key to see a multiplication table!");
             Console.ReadKey();
 
-            //for (int i = 1; i <= 10; i++)
-            //{
-            //    Console.Write(i + "\t");
-            //    for (int j = 2; j <= 10; j++)
-            //    {
-            //        if (i > 0) Console.Write(i * j + "\t");
-            //        else Console.Write(j + "\t");
-            //    }
-            //    Console.Write("\n");
-            //}
-
             for (int i = 1; i <= 10; i++)
             {
                 Console.Write(i + "\t");
@@ -553,19 +557,89 @@ namespace Exercise_Prerequisite
                 if (guess > randomNumber)
                 {
                     tries = tries + 1;
-                    Console.WriteLine("Your guess was too big! Try again! You've guessed " + tries + " Times!");
+                    Console.WriteLine("Your guess was too big! Try again! You've guessed " + tries + " times!");
                 }
                 else if (guess < randomNumber)
                 {
-                    tries = tries+ 1;
-                    Console.WriteLine("Your guess was too small! Try again! You've guessed " + tries + " Times!");
+                    tries = tries + 1;
+                    Console.WriteLine("Your guess was too small! Try again! You've guessed " + tries + " times!");
                 }
                 else
                 {
-                    tries = tries+ 1;
-                    Console.WriteLine("Congratulations, you guessed correctly! it was: " + guess + " You guessed " + tries + " Times!");
+                    tries = tries + 1;
+                    Console.WriteLine("Congratulations, you guessed correctly! it was: " + guess + " You guessed " + tries + " times!");
                     stayAlive = false;
                 }
+            }
+        }
+        private static void RunExerciseFourteen()
+        {
+            Console.ResetColor();
+
+            bool stayAlive = true;
+
+            int tries = 0;
+            double result = 0;
+            double average = 0;
+
+            while (stayAlive)
+            {
+                Console.Write("Please enter a number (or -1 to stop): ");
+                double amount = double.Parse(Console.ReadLine() ?? "");
+
+
+                if (amount == -1)
+                {
+                    stayAlive = false;
+                    Console.WriteLine("The total amount ended up at " + result + " and you added numbers " + tries + " times! And the average was: " + average);
+                }
+                else
+                {
+                    result = result + amount;
+                    tries = tries + 1;
+
+                    average = result / tries;
+
+                    Console.WriteLine("The total amount is currently  " + result + ", you've added numbers " + tries + " times! And the average is currently: " + average);
+                }
+            }
+        }
+        private static void RunExerciseFifteen()
+        {
+
+        }
+        private static void RunExerciseSixthteen()
+        {
+
+        }
+        private static void RunExerciseSeventeen()
+        {
+
+        }
+        private static void RunExerciseEighteen()
+        {
+            Console.ResetColor();
+
+            int[] intArray = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
+
+            double[] doubleArray1 = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            double[] doubleArray2 = new double[10];
+            int i = 0;
+            int d = 0;
+
+            Random random = new Random();
+
+            foreach (int value in intArray)
+            {
+                int card = random.Next(value);
+                doubleArray2[i] = card;
+
+                i++;
+            }
+            foreach (double value2 in doubleArray2)
+            {
+                Console.WriteLine(doubleArray2[d] + "\t" + (doubleArray1[d] / value2));
+                d++;
             }
         }
 
