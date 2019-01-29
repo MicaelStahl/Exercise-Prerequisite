@@ -75,6 +75,9 @@ namespace Exercise_Prerequisite
                         case 18:
                             RunExerciseEighteen();
                             break;
+                        case 19:
+                            RunExerciseNineteen();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
@@ -184,7 +187,7 @@ namespace Exercise_Prerequisite
             Console.ReadLine();
 
             int firstNumbers = str.IndexOf("[");
-            string secondNumbers = str.Substring(firstNumbers);
+            string secondNumbers = str.Substring(firstNumbers); //Makes the text start at the given value in the IndexOf.
             string thirdNumbers = secondNumbers.Remove(3, 4); //Removes 4 characters starting from character 4
             string fourthNumbers = thirdNumbers.Insert(6, ",6,7,8,9,10"); //inserts "5,6,7,8,9,10" from character 6. 
 
@@ -451,10 +454,13 @@ namespace Exercise_Prerequisite
                 Console.WriteLine("This is now red!");
 
                 Console.ResetColor();
-                //Console.ReadKey();
 
                 Globals.globalColour = "Red";
             }
+        }
+        public static class Globals
+        {
+            public static String globalColour = "Red";
         }
         private static void RunExerciseEleven()
         {
@@ -591,7 +597,7 @@ namespace Exercise_Prerequisite
                 if (amount == -1)
                 {
                     stayAlive = false;
-                    Console.WriteLine("The total amount ended up at " + result + " and you added numbers " + tries + " times! And the average was: " + average);
+                    Console.WriteLine("The total amount ended up at " + result + " and you added numbers " + tries + " times! And the average was: " + Math.Round(average, 2));
                 }
                 else
                 {
@@ -600,7 +606,7 @@ namespace Exercise_Prerequisite
 
                     average = result / tries;
 
-                    Console.WriteLine("The total amount is currently  " + result + ", you've added numbers " + tries + " times! And the average is currently: " + average);
+                    Console.WriteLine("The total amount is currently  " + result + ", you've added numbers " + tries + " times! And the average is currently: " + Math.Round(average, 2));
                 }
             }
         }
@@ -621,7 +627,7 @@ namespace Exercise_Prerequisite
             Console.ResetColor();
 
             int[] intArray = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
-
+            Array.Sort(intArray);
             double[] doubleArray1 = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
             double[] doubleArray2 = new double[10];
             int i = 0;
@@ -642,10 +648,51 @@ namespace Exercise_Prerequisite
                 d++;
             }
         }
-
-        public static class Globals
+        private static void RunExerciseNineteen()
         {
-            public static String globalColour = "Red";
+            int[] changeBackArray = { 1000, 500, 100, 50, 20, 10, 5, 1 };
+
+            bool stayAlive = true;
+
+            Random random = new Random();
+            int randomNumber = random.Next(1, 2000);
+
+            Console.WriteLine("That'll be: " + randomNumber + " kr.");
+
+            while (stayAlive)
+            {
+
+                Console.Write("Enter the sum to pay: ");
+                int sumToPay = int.Parse(Console.ReadLine());
+                int change = sumToPay - randomNumber;
+
+                if (randomNumber > sumToPay)
+                {
+                    Console.WriteLine("Please give a valid amount");
+
+
+                }
+                else
+                {
+                Console.WriteLine("Calculated change: " + change + "\nCoins distribution: ");
+
+
+                    foreach (int value in changeBackArray)
+                    {
+                        int coinsChange = change / value;
+
+                        if (coinsChange >= 1)
+                        {
+                            change = change - (coinsChange * value);
+                        }
+                        Console.WriteLine(value + " coins = " + coinsChange);
+
+                    }
+                }
+                Console.ResetColor();
+                return;
+            }
         }
+
     }
 }
